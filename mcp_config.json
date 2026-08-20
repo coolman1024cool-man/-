@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "notebooklm": {
+      "type": "local",
+      "command": ["nlm", "mcp"],
+      "enabled": true
+    },
+    "firebase": {
+      "type": "local",
+      "command": ["npx.cmd", "-y", "firebase-tools@latest", "mcp"],
+      "enabled": true
+    }
+  }
+}

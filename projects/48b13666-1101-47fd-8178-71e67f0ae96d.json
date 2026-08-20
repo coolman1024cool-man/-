@@ -1,0 +1,28 @@
+{
+  "id": "48b13666-1101-47fd-8178-71e67f0ae96d",
+  "name": "0000-antigravuty-0811",
+  "projectResources": {
+    "resources": [
+      {
+        "folderUri": "file:///d%3A/01%E9%82%B1%E6%AD%A3%E5%BD%A51130801-/0000-antigravuty-0811"
+      }
+    ]
+  },
+  "permissionGrants": {
+    "permissionGrants": {
+      "allow": [
+        "read_file(D:\\01邱正彥1130801-\\101圖像生成)",
+        "read_file(D:\\01邱正彥1130801-\\98計畫申請書)",
+        "command(python -c \"\nimport sys, os\nprint(sys.executable)\ntry:\n    import pypdf\n    print('pypdf OK')\nexcept Exception as e: print(e)\ntry:\n    import fitz\n    print('fitz OK')\nexcept Exception as e: print(e)\ntry:\n    import pdfplumber\n    print('pdfplumber OK')\nexcept Exception as e: print(e)\ntry:\n    import win32com.client\n    print('win32com OK')\nexcept Exception as e: print(e)\n\")"
+      ]
+    }
+  },
+  "settings": {
+    "fileAccessPolicy": "AGENT_SETTING_POLICY_ALLOW",
+    "sandboxMode": false,
+    "autoExecutionPolicy": "CASCADE_COMMANDS_AUTO_EXECUTION_EAGER",
+    "artifactReviewMode": "ARTIFACT_REVIEW_MODE_TURBO"
+  },
+  "updatedAt": "2026-08-19T09:26:31.910926300Z",
+  "isWorkspaceOnly": false
+}
