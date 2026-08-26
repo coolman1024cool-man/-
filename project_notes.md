@@ -1,15 +1,16 @@
-# 大工作區專案筆記 (Workspace Notes)
+﻿# 大工作區專案筆記 (Workspace Notes)
 
 記錄跨專案的重大事項、通用進度與下一步計畫。
 
-## 2026-08-26
+## 2026-08-26 (收工)
 ### 已完成
-- 完成外層大工作區 (0000-antigravity-0811) 的 AntiGravity 工作流環境設定。
-- 確認 GitHub Repo (`coolman1024cool-man/minth-university-ai-skills`) 連結狀態。
+- 完成大工作區 AI 系統架構重構，確立了「全域技能」與「專案技能」的分野。
+- 成功將 4 項業務技能 (ALLTOP採購、USR預算、工讀生彙整、海報生成) 遷移至專案本機資料夾 .agents/skills 內。
+- 將本機所有尚未追蹤的通用技能資料夾同步備份至 GitHub 雲端 (coolman1024cool-man/minth-university-ai-skills)。
 
 ### 下一步計畫
 - 統整各個子資料夾的開發進度。
-- (待補)
+- 依據後續任務需求，開發或引進新的自動化工具。
 
 ### 踩坑記錄
-- (目前一切順利)
+- 需注意區分全域與專案的 AI 技能配置，避免大腦混亂，目前已順利解決。
