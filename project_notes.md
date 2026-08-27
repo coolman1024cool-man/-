@@ -14,3 +14,16 @@
 
 ### 踩坑記錄
 - 需注意區分全域與專案的 AI 技能配置，避免大腦混亂，目前已順利解決。
+
+## 2026-08-27 (收工)
+### 已完成
+- 建立 canvas-drawing-app 專案 (基礎 HTML5 Canvas 塗鴉白板)。
+- 分析舊有海報設計風格，大幅升級 minth-poster-generator 技能，將 generate_poster.py 擴充支援 5 款 Canva 海報模板：eco (生態)、	ech (科技)、genda (日程表)、keynote (大師開講)、grid (四宮格成果)。
+- 建立 Canva 與 AI 協作流程：未來可由 AI 產出結構精確的 PPTX 骨架，再匯入 Canva 裝潢美化；使用者於 Canva 微調後的截圖，也能讓 AI 讀取並直接寫回 Python 代碼。
+
+### 下一步計畫
+- 繼續實作其他未完成的工作任務。
+- 若使用者提供新的 Canva 修改截圖，進一步微調並固化 5 款海報的 Python 生成代碼。
+
+### 踩坑記錄
+- （無特別重大錯誤，流程順暢）
