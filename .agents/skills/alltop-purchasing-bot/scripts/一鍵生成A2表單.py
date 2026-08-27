@@ -1,4 +1,4 @@
-﻿import pandas as pd
+import pandas as pd
 import docx
 from docx.shared import Pt
 from docx.oxml.ns import qn
@@ -55,8 +55,16 @@ for index, row in df.iterrows():
             for cell in r.cells:
                 for p in cell.paragraphs:
                     for run in p.runs:
-                        if '{{SPEC}}' in run.text or '{{UNIT}}' in run.text:
-                            run.text = run.text.replace('{{SPEC}}', spec).replace('{{UNIT}}', unit)
+                        if '{{UNIT}}' in run.text:
+                            run.text = run.text.replace('{{UNIT}}', unit)
+                            set_font(run)
+                        if '{{SPEC}}' in run.text:
+                            run.text = run.text.replace('{{SPEC}}', '')
+                            lines = spec.split('\n')
+                            run.add_text(lines[0])
+                            for line in lines[1:]:
+                                run.add_break()
+                                run.add_text(line)
                             set_font(run)
 
     # 存檔
