@@ -1,4 +1,4 @@
-﻿# 大工作區專案筆記 (Workspace Notes)
+# 大工作區專案筆記 (Workspace Notes)
 
 記錄跨專案的重大事項、通用進度與下一步計畫。
 
@@ -18,8 +18,10 @@
 ## 2026-08-27 (收工)
 ### 已完成
 - 建立 canvas-drawing-app 專案 (基礎 HTML5 Canvas 塗鴉白板)。
-- 分析舊有海報設計風格，大幅升級 minth-poster-generator 技能，將 generate_poster.py 擴充支援 5 款 Canva 海報模板：eco (生態)、	ech (科技)、genda (日程表)、keynote (大師開講)、grid (四宮格成果)。
+- 分析舊有海報設計風格，大幅升級 minth-poster-generator 技能，將 generate_poster.py 擴充支援 5 款 Canva 海報模板：eco (生態)、	ech (科技)、 genda (日程表)、keynote (大師開講)、grid (四宮格成果)。
 - 建立 Canva 與 AI 協作流程：未來可由 AI 產出結構精確的 PPTX 骨架，再匯入 Canva 裝潢美化；使用者於 Canva 微調後的截圖，也能讓 AI 讀取並直接寫回 Python 代碼。
+- 完成本機端 Google Calendar API 的串接與金鑰設定（包含 OAuth 同意畫面、測試人員名單、產生 `token.json`）。
+- 開發並建立 **`smart-calendar-assistant` (智慧行事曆小幫手)** 技能，能夠讀取對話或截圖，自動判斷並寫入三大類別日曆（私人、USR、家庭）。
 
 ### 下一步計畫
 - 繼續實作其他未完成的工作任務。

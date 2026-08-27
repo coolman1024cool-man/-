@@ -231,6 +231,7 @@ def main():
     else:
         out_path = os.path.abspath(args.out)
 
+
     # 預設數據結構範本
     default_data = [
         ["高教主軸項目", "高教主軸項目", "高教主軸項目", "執行單位", "預算", "已申請 未核銷", "已核銷 金額", "預算餘額", "執行率"],
@@ -260,6 +261,48 @@ def main():
     ]
 
     print(f"Reading PDF input from '{pdf_path}'...")
+    
+    # 動態解析 PDF 並覆寫數字
+    import re
+    import pdfplumber
+    num_pattern = re.compile(r'([\d,]+)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s+(\d+\.\d{2})')
+    
+    extracted_rows = []
+    with pdfplumber.open(pdf_path) as pdf:
+        for page in pdf.pages:
+            text = page.extract_text()
+            if not text: continue
+            for line in text.split('\n'):
+                match = num_pattern.search(line)
+                if match:
+                    extracted_rows.append(match.groups())
+                    
+    if len(extracted_rows) == 23:
+        for i in range(23):
+            # i+1 因為 default_data[0] 是表頭
+            A = extracted_rows[i][1]
+            B = int(extracted_rows[i][2].replace(',', ''))
+            C = int(extracted_rows[i][3].replace(',', ''))
+            flow_out = int(extracted_rows[i][4].replace(',', ''))
+            applied_not_cleared = f"{B + C + flow_out:,}"
+            D = extracted_rows[i][5]
+            E = extracted_rows[i][6]
+            rate_float = float(extracted_rows[i][7])
+            
+            if i == 22: # 總計
+                rate_str = f"{rate_float:.1f}%"
+            else:
+                rate_str = f"{round(rate_float)}%"
+
+            default_data[i+1][4] = A
+            default_data[i+1][5] = applied_not_cleared
+            default_data[i+1][6] = D
+            default_data[i+1][7] = E
+            default_data[i+1][8] = rate_str
+        print("[Info] Successfully extracted 23 rows of budget data from PDF and merged with template.")
+    else:
+        print(f"[Warning] Extracted {len(extracted_rows)} rows instead of 23. Using default template data as fallback.")
+
     build_word_report(default_data, out_path)
 
 if __name__ == "__main__":
